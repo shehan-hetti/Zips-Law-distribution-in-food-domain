@@ -1,0 +1,4 @@
+Sentiment column (yearly): sentiment_mean
+Nutrient: ENERC_kcal (yearly sum)
+Pearson r (yearly): -0.055998
+Years: 2001–2017 (n=17)

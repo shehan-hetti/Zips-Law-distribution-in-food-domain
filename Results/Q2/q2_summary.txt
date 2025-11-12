@@ -1,0 +1,7 @@
+Sentiment column: sentiment_mean
+AFINN language: fi (emoticons=True)
+Mean monthly AFINN hit coverage (non-empty titles): 0.150453
+Nutrient: ENERC_kcal | Pearson r: -0.060110
+Nutrient: PROT | Pearson r: -0.092309
+Nutrient: FAT | Pearson r: -0.099933
+Nutrient: CHOAVL | Pearson r: -0.001379

@@ -1,0 +1,6 @@
+Nutrient: ENERC_kcal | Pearson r (monthly; richness): nan
+Nutrient: ENERC_kcal | Pearson r (monthly; effN): 0.298137
+Plot (monthly; effN): /projappl/project_2015109/work/results_q5/monthly_categories_effN_vs_ENERC_kcal.png
+Nutrient: ENERC_kcal | Pearson r (yearly; richness): nan
+Nutrient: ENERC_kcal | Pearson r (yearly; effN): 0.322636
+Plot (yearly; effN): /projappl/project_2015109/work/results_q5/yearly_categories_effN_vs_ENERC_kcal.png

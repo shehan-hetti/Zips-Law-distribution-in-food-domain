@@ -1,0 +1,10 @@
+Zipf fit on title-length bins
+Tokenizer: regex
+Stopwords removed: True
+Stemming: finnish
+Binning: equal (20 bins requested)
+Bins used in fit (freq>0): 16
+a = 17.692749
+b = -6.622336  (Zipf exponent s ≈ 6.622336)
+R^2 = 0.977225
+Adjusted R^2 = 0.975598

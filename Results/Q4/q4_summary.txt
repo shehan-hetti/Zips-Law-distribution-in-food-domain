@@ -1,0 +1,4 @@
+Nutrient: ENERC_kcal | Pearson r (monthly): 0.996269
+Plot (monthly): /projappl/project_2015109/work/results_q4/monthly_diversity_vs_ENERC_kcal.png
+Nutrient: ENERC_kcal | Pearson r (yearly): 0.993915
+Plot (yearly): /projappl/project_2015109/work/results_q4/yearly_diversity_vs_ENERC_kcal.png

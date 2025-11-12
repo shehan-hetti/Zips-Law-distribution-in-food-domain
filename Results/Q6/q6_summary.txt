@@ -1,0 +1,9 @@
+Heaps' law fit (V = K * N^beta)
+Tokenizer: regex
+Stopwords removed: True
+Stemming: finnish
+Points: 204 (2001-01 .. 2017-12)
+K = 9.18822
+beta = 0.708687
+R^2 = 0.999916
+Adjusted R^2 = 0.999916
