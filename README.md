@@ -51,7 +51,7 @@ These datasets were processed into a unified structure containing thread titles,
 - Python 3.12+
 - Virtual environment (`venv`)
 - Libraries:
-  ```bash
+  ```text
   pandas
   numpy
   matplotlib
@@ -62,41 +62,94 @@ These datasets were processed into a unified structure containing thread titles,
   scipy
 
 To install dependencies:
-```
+```bash
 pip install -r requirements.txt
 ```
 ## 🚀 Running the Scripts
 
-Each question has its own script under /scripts. Example run:
+Each question has its own script:
+
+Q1.
+
+``` python
+python /path_to_scripts/fineli_prep.py
 ```
-python scripts/q6_heaps.py \
-  --base /projappl/project_2015109/work \
+Use suomi24_process_year.py script inside the slurm job
+``` bash
+sbatch /path_to_scripts/suomi24_year_array.slurm
+```
+``` python
+python /path_to_scripts/aggregate_monthly.py
+```
+after data preparation:
+``` python
+python /path_to_scripts/plot_monthly_option.py 
+
+option that can use with above command:
+
+--year 2012 → plots only that year (12 points)
+--month 2012-05 → plots only that month (1 point)
+--from 2009-01 --to 2009-12 → any custom time period
+--cols ENERC_kcal PROT → choose which series to plot ("ENERC_kcal", "PROT", "FAT", "CHOAVL")
+```
+
+Q2.
+
+``` python
+python /path_to_scripts/q2_sentiment.py \
+  --base "/path_to_results/Q1_outputs" \
+  --nutrient ALL \
+  --afinn-lang fi \
+  --emoticons \
+  --sent-stat sentiment_mean
+
+--nutrient can be repeated or use --nutrient ALL to run the all four - ENERC_kcal, PROT, FAT, CHOAVL
+```
+
+Q3.
+
+``` python
+python /path_to_scripts/q3_sentiment_yearly.py \
+  --sent-root "/path_to_results/results_q2" \
+  --q1-base   "/path_to_results/Q1_outputs" \
+  --out-root  "/path_to_base_dir/work" \
+  --sent-stat sentiment_mean
+```
+
+Q4.
+
+``` python
+python /path_to_scripts/q4_diversity.py --base /path_to_base_dir/work
+```
+
+Q5.
+
+``` python
+python /path_to_scripts/q5_diversity_by_category.py \
+  --base /path_to_base_dir/work \
+  --nutrient ENERC_kcal \
+  --emit-counts --emit-counts-long \
+  --write-cat-csv /path_to_base_dir/work/processed/fineli_food_categories.csv
+```
+
+Q6.
+
+``` python
+python /path_to_scripts/q6_heaps.py \
+  --base /path_to_base_dir/work \
   --use-stopwords --stem finnish
-
 ```
-Output files (e.g., plots, .parquet, .txt summaries) will be written under results_q* directories.
 
-## 📈 Example Results
+Q7.
 
-- results_q6/heaps_loglog.png → Heaps’ law log–log plot
-- results_q7/zipf_freq_vs_rank.png → Zipf’s law frequency–rank plot
-- results_q5/monthly_categories_effN_vs_ENERC_kcal.png → Correlation of category diversity and energy intake
-
-## 💡 Usage Example
-Run all scripts step by step to reproduce the pipeline:
+``` python
+python /path_to_scripts/q7_zipf_title_lengths.py \
+  --base /path_to_base_dir/work \
+  --tokenizer regex --use-stopwords --stem finnish \
+  --binning equal --bins 20
 ```
-# Q4 - Compute food diversity
-python scripts/q4_diversity.py --base /projappl/project_2015109/work
 
-# Q5 - Category-based diversity vs. nutrients
-python scripts/q5_diversity_by_category.py --base /projappl/project_2015109/work --nutrient ENERC_kcal
-
-# Q6 - Heaps’ Law fit
-python scripts/q6_heaps.py --base /projappl/project_2015109/work --use-stopwords --stem finnish
-
-# Q7 - Zipf’s Law fit
-python scripts/q7_zipf_title_lengths.py --base /projappl/project_2015109/work --tokenizer regex --use-stopwords --stem finnish --binning equal --bins 20
-```
+Output files (e.g., plots, .parquet, .txt summaries) will be written under results_q* (2-7) directories.
 
 ## 🪄 License
 
